@@ -1,0 +1,29 @@
+﻿
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Product List</h2></div>
+        <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="Product" asp-action="Upsert"> Create New Product</a></div>
+
+    </div>
+    <table class="table table-striped" id="tbldata" style="width:100%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Price</th>
+               
+
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}

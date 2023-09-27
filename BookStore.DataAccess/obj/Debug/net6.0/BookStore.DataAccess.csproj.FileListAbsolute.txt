@@ -1,0 +1,17 @@
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.csproj.AssemblyReference.cache
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.AssemblyInfoInputs.cache
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.AssemblyInfo.cs
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.DataAccess.deps.json
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.DataAccess.pdb
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.Models.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.Models.pdb
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.csproj.CopyComplete
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\refint\BookStore.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.pdb
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\ref\BookStore.DataAccess.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.DataAccess.runtimeconfig.json
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.genruntimeconfig.cache

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CoverType>
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Cover Type List</h2></div>
+        <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="CoverType" asp-action="Create"> Create New Cover Type</a></div>
+        
+    </div>
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Types</th>
+               
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach(var obj in Model){
+            <tr >
+               
+                    
+                
+                <td style="width:70%">@obj.Name</td>
+
+                <td>
+                    <a asp-controller="CoverType" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Edit</a>
+                        <a asp-controller="CoverType" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+
+                </td>
+                
+            </tr>
+             }
+        </tbody>
+    </table>
+</div>

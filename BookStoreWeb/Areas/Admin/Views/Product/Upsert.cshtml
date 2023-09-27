@@ -1,0 +1,104 @@
+﻿@model BookStore.Models.ViewModels.ProductVM
+<div class="border my-3 p-3">
+    <h2>@(Model.Product.Id!=0 ? "Update Product" : "Create Product")</h2>
+
+    <form method="post" asp-action="Upsert" enctype="multipart/form-data">
+        <div class="my-3">
+            <label asp-for="Product.Title"></label>
+            <input class="form-control" asp-for="Product.Title"  />
+            <span class="text-danger" asp-validation-for="Product.Title"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.Description"></label>
+            <input class="form-control" asp-for="Product.Description" />
+            <span class="text-danger" asp-validation-for="Product.Description"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.ISBN"></label>
+            <input class="form-control" asp-for="Product.ISBN" />
+            <span class="text-danger" asp-validation-for="Product.ISBN"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.Author"></label>
+            <input class="form-control" asp-for="Product.Author" />
+            <span class="text-danger" asp-validation-for="Product.Author"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.ListPrice"></label>
+            <input class="form-control" asp-for="Product.ListPrice" />
+            <span class="text-danger" asp-validation-for="Product.ListPrice"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.Price"></label>
+            <input class="form-control" asp-for="Product.Price" />
+            <span class="text-danger" asp-validation-for="Product.Price"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.Price50"></label>
+            <input class="form-control" asp-for="Product.Price50" />
+            <span class="text-danger" asp-validation-for="Product.Price50"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.Price100"></label>
+            <input class="form-control" asp-for="Product.Price100" />
+            <span class="text-danger" asp-validation-for="Product.Price100"></span>
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.ImageUrl"></label>
+            <input class="form-control" type="file" id="uploadBox" name="file" />
+        </div>
+        <div class="my-3">
+            <label asp-for="Product.CategoryId"></label>
+            <select class="form-select" asp-for="Product.CategoryId" asp-items="@Model.CategoryList">
+                <option disabled selected>--Select Category--</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Product.CategoryId"></span>
+        </div>
+
+        <div class="my-3">
+            <label asp-for="Product.CoverTypeId"></label>
+            <select class="form-select" asp-for="Product.CoverTypeId" asp-items="@Model.CoverTypeList">
+                <option disabled selected>--Select Category--</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Product.CoverTypeId"></span>
+        </div>
+
+     
+
+
+
+        <div class="my-4">
+            @if (Model.Product.Id != 0)
+            {
+                <button class="btn btn-primary" type="submit">Update</button>
+            }
+            else
+            {
+                <button class="btn btn-primary" onclick=" return validateInput()" type="submit">Add</button>
+            }
+            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back To List</a>
+        </div>
+
+
+    </form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<script>
+    function validateInput(){
+        if (document.getElementById('uploadBox').value == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href="">Why do I have this issue?</a>'
+                
+            });
+            return false;
+        }
+        return true;
+    }
+</script>

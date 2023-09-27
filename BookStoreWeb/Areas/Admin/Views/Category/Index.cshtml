@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Category>
+
+<div>
+    <div class="row my-4">
+        <div class="col-6"><h2>Category List</h2></div>
+        <div class="col-6 text-end"><a class="btn btn-primary" asp-controller="Category" asp-action="Create"> Create New Category</a></div>
+        
+    </div>
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Category</th>
+               
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach(var obj in Model){
+            <tr >
+               
+                    
+                
+                <td style="width:70%">@obj.Name</td>
+
+                <td>
+                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary">Edit</a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+
+                </td>
+                
+            </tr>
+             }
+        </tbody>
+    </table>
+</div>
