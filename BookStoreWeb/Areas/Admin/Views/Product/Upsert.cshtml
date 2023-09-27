@@ -3,6 +3,8 @@
     <h2>@(Model.Product.Id!=0 ? "Update Product" : "Create Product")</h2>
 
     <form method="post" asp-action="Upsert" enctype="multipart/form-data">
+        <input asp-for="Product.Id" hidden />
+        <input asp-for="Product.ImageUrl" hidden />
         <div class="my-3">
             <label asp-for="Product.Title"></label>
             <input class="form-control" asp-for="Product.Title"  />
