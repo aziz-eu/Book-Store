@@ -20,6 +20,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+
         public IActionResult Index()
         {            
             return View();
@@ -68,7 +69,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString();
-                    var uploads = Path.Combine(wwwRootPath, @"images\products");
+                    var uploads = Path.Combine(wwwRootPath, @"images\products\");
                     var extension = Path.GetExtension(file.FileName);
 
                     if (obj.Product.ImageUrl != null)
@@ -92,10 +93,12 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 if(obj.Product.Id == 0)
                 {
                     _unitOfWork.Product.Add(obj.Product);
+                    TempData["success"] = "Created Successfully";
                 }
                 else
                 {
                     _unitOfWork.Product.Update(obj.Product);
+                    TempData["success"] = "Updated Successfully";
                 }
 
                
@@ -105,42 +108,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
-
-
-
-
-
-
-        public IActionResult Delete(int id)
-        {
-            if (id == 0 || id == null)
-            {
-                return NotFound();
-            }
-            var coverTypeDelete = _unitOfWork.CoverType.GetFirstOrDefault(u => u.Id == id);
-            if (coverTypeDelete == null)
-            {
-                return NotFound();
-            }
-            return View(coverTypeDelete);
-        }
-        public IActionResult DeletePost(int id)
-        {
-            var coverTypeDelete = _unitOfWork.CoverType.GetFirstOrDefault(u => u.Id == id);
-
-            _unitOfWork.CoverType.Remove(coverTypeDelete);
-            _unitOfWork.Save();
-            TempData["Success"] = "Category Delete Successfully";
-            return RedirectToAction("Index");
-
-
-        }
+            
 
         #region API CALLS
 
@@ -149,6 +117,30 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             var productList = _unitOfWork.Product.GetAll(includeProperties: "Catagory,CoverType");
             return Json(new { data = productList });
         }
+
+
+        public IActionResult Delete(int id)
+        {
+            var obj = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+
+            if(obj == null)
+            {
+                return Json(new { success = false , message = "Error While Deleting"});
+            }
+
+            var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, obj.ImageUrl.TrimStart('\\'));
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
+            }
+
+            _unitOfWork.Product.Remove(obj);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Product Deleted Successfully" });
+
+
+        }
+
         #endregion
 
 

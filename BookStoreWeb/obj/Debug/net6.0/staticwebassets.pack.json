@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\a1f8c538-7473-4a74-908e-6cd739e04917.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\a1f8c538-7473-4a74-908e-6cd739e04917.jpg"
+    },
+    {
       "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

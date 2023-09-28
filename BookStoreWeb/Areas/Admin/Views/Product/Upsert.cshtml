@@ -17,7 +17,7 @@
                 </div>
                 <div class="my-3">
                     <label asp-for="Product.Description"></label>
-                    <input class="form-control" asp-for="Product.Description" />
+                    <textarea class="form-control" rows="1" asp-for="Product.Description"></textarea>
                     <span class="text-danger" asp-validation-for="Product.Description"></span>
                 </div>
                 <div class="my-3">
@@ -104,21 +104,42 @@
 
 
 @section Scripts{
+    @{
+    
     <partial name="_ValidationScriptsPartial" />
+    
+    }
+
+    <script>
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+        });
+
+        function validateInput() {
+            if (document.getElementById('uploadBox').value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please Uplode Product Image!',
+                    footer: '<a href="">Why do I have this issue?</a>'
+
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
 }
 
-<script>
-    function validateInput(){
-        if (document.getElementById('uploadBox').value == "") {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong!',
-                footer: '<a href="">Why do I have this issue?</a>'
-                
-            });
-            return false;
-        }
-        return true;
-    }
-</script>
+
+
