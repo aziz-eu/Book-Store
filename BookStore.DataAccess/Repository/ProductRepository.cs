@@ -33,7 +33,7 @@ namespace BookStore.DataAccess.Repository
                 obj.CoverType = obj.CoverType;
                 if(objFromDb.ImageUrl !=null)
                 {
-                    objFromDb.ImageUrl = objFromDb.ImageUrl;
+                    objFromDb.ImageUrl = obj.ImageUrl;
                 }
 
             }

@@ -85,7 +85,8 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                     {
                         file.CopyTo(fileStrem);
                     }
-                    obj.Product.ImageUrl = @"images\products" + fileName + extension;
+                    obj.Product.ImageUrl = @"images\products\" + fileName + extension;
+
                 }
 
                 if(obj.Product.Id == 0)
