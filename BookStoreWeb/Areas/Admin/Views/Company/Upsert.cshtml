@@ -1,0 +1,81 @@
+﻿@model Company
+
+
+    <form method="post" asp-action="Upsert">
+    
+        <input asp-for="Id" hidden />
+     
+
+        <div class="row">
+           
+            <div class="border my-3 p-3">
+                <h2>@(Model.Id != 0 ? "Update Company" : "Create Company")</h2>
+                <div class="my-3">
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" />
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="my-3">
+                    <label asp-for="StreetAddress"></label>
+                    <textarea class="form-control" rows="1" asp-for="StreetAddress"></textarea>
+                    <span class="text-danger" asp-validation-for="StreetAddress"></span>
+                </div>
+                <div class="my-3">
+                    <label asp-for="Street"></label>
+                    <input class="form-control" asp-for="Street" />
+                    <span class="text-danger" asp-validation-for="Street"></span>
+                </div>
+
+                <div class="my-3">
+                    <label asp-for="City"></label>
+                    <input class="form-control" asp-for="City" />
+                    <span class="text-danger" asp-validation-for="City"></span>
+                </div>
+            <div class="my-3">
+                <label asp-for="PostalCode"></label>
+                <input class="form-control" asp-for="PostalCode" />
+                <span class="text-danger" asp-validation-for="PostalCode"></span>
+            </div>
+
+            <div class="my-3">
+                <label asp-for="PhoneNumber"></label>
+                <input class="form-control" asp-for="PhoneNumber" />
+                <span class="text-danger" asp-validation-for="PhoneNumber"></span>
+            </div>
+          
+
+
+
+
+                <div class="my-4">
+                    @if (Model.Id != 0)
+                    {
+                        <button class="btn btn-primary" type="submit">Update</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-primary" onclick=" return validateInput()" type="submit">Add</button>
+                    }
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">Back To List</a>
+                </div>
+            </div>
+        </div>
+           
+
+
+       
+    </form>
+
+
+@section Scripts{
+    @{
+    
+    <partial name="_ValidationScriptsPartial" />
+    
+    }
+
+}
+ 
+
+
+

@@ -9,6 +9,8 @@ using System.Net.Http.Headers;
 
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
+
+    [Area("Admin")]
     public class ProductController : Controller
     {
         public readonly IUnitOfWork _unitOfWork;

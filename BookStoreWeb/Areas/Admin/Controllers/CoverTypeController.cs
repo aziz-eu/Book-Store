@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BookStoreWeb.Areas.Admin.Controllers
 {
+
+    [Area("Admin")]
     public class CoverTypeController : Controller
     {
         public readonly IUnitOfWork _unitOfWork;
