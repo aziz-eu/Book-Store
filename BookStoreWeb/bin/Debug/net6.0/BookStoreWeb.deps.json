@@ -35,6 +35,7 @@
       "BookStoreWeb/1.0.0": {
         "dependencies": {
           "BookStore.DataAccess": "1.0.0",
+          "BookStore.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.UI": "6.0.21",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.22",
           "Microsoft.EntityFrameworkCore": "6.0.22",
@@ -3564,6 +3565,17 @@
         },
         "compile": {
           "BookStore.Models.dll": {}
+        }
+      },
+      "BookStore.Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.21"
+        },
+        "runtime": {
+          "BookStore.Utility.dll": {}
+        },
+        "compile": {
+          "BookStore.Utility.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery.Reference/6.0.0.0": {
@@ -7177,6 +7189,11 @@
       "sha512": ""
     },
     "BookStore.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookStore.Utility/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
