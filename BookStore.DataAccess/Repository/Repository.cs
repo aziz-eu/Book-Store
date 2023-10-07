@@ -28,11 +28,16 @@ namespace BookStore.DataAccess.Repository
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> GetAll( string ? includeProperties = null)
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter=null, string ? includeProperties = null)
         {
             IQueryable<T> quary = dbSet;
+            if(filter != null)
+            {
+				quary = quary.Where(filter);
+			}
+			
 
-            if (includeProperties != null)
+			if (includeProperties != null)
             {
                 foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
