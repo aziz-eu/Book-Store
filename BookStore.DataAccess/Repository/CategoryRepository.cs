@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class CategoryRepository : Repository<Category>, IOrderHeaderRepository
     {
         public ApplicationDbContext _db;
 

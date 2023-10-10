@@ -20,5 +20,8 @@ namespace BookStore.Data
         public DbSet<Company> Companies { get; set; }
 
         public DbSet<ShopingCart> ShoppingCarts { get; set;}
+
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
     }
 }
