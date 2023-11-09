@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h9n6qWL6FwDXuhS18DrEoChrPrGTiV/sIcCHQj8s3Ag=",
+  "Hash": "a/JvTTTEPpa8h74MWBxh9BQwHtTGxhxLVkkYPI5Ycyw=",
   "Source": "BookStoreWeb",
   "BasePath": "_content/BookStoreWeb",
   "Mode": "Default",
@@ -1137,6 +1137,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\733e733b-fed5-494c-8a7c-49ed77aa47d6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg",
+      "SourceId": "BookStoreWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\",
+      "BasePath": "_content/BookStoreWeb",
+      "RelativePath": "images/products/bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg"
     },
     {
       "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\js\\site.js",

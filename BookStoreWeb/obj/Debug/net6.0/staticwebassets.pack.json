@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\images\\products\\733e733b-fed5-494c-8a7c-49ed77aa47d6.jpg"
     },
     {
+      "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg"
+    },
+    {
       "Id": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
