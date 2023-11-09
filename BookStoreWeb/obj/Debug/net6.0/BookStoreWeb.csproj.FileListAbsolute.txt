@@ -581,3 +581,4 @@ C:\Users\18622\Desktop\ASP.NET\BookStore\BookStoreWeb\bin\Debug\net6.0\Microsoft
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStoreWeb\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStoreWeb\bin\Debug\net6.0\BookStore.Utility.dll
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStoreWeb\bin\Debug\net6.0\BookStore.Utility.pdb
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStoreWeb\bin\Debug\net6.0\Stripe.net.dll

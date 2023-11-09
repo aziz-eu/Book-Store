@@ -25,7 +25,7 @@ namespace BookStore.DataAccess.Repository
 
 		
 
-		public void UpdateStatus(int id, string orderStatus, string paymentStatus)
+		public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
 		{
 			var orderFromDb = _db.OrderHeaders.FirstOrDefault(u=>u.Id == id);   
             if(orderFromDb != null)
@@ -37,6 +37,15 @@ namespace BookStore.DataAccess.Repository
                     orderFromDb.PaymentStatus = paymentStatus;
                 }
             }
+		}
+		public void UpdateStripePaymentId(int id, string sessionId, string paymentIntentId)
+		{
+			var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
+
+            orderFromDb.SessionId = sessionId;
+
+            orderFromDb.PaymentIntentNumber = paymentIntentId;
+			
 		}
 	}
 }

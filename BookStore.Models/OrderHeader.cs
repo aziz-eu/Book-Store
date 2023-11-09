@@ -34,20 +34,27 @@ namespace BookStore.Models
 		public DateTime PaymentDate { get; set; }
 		public DateTime PaymentDueDate { get; set; }
 
-		public string SessionId { get; set; }
-		public string PaymentIntentNumber { get; set; }
+		public string? SessionId { get; set; }
+		public string? PaymentIntentNumber { get; set; }
 
 		[Required]
 		public String Name { get; set; }
 		[Required]
-		public String? City { get; set; }
-		[Required]
-		public String? Street { get; set; }
-		[Required]
+		public string PhoneNumber { get; set; }
 
-		public String? StreetAddress { get; set; }
 		[Required]
-		public String? PostalCode { get; set; }
+		public String City { get; set; }
+
+		[Required]
+		public String Street { get; set; }
+
+		[Required]
+		public String StreetAddress { get; set; }
+
+		[Required]
+		public String PostalCode { get; set; }
+
 	}
+
 
 }

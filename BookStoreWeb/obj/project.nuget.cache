@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wssgyeUDSiB++SmEyiQkiR3+R/npyFogy0bsFXVB7dQRTmDSjLwJgt5St8Hmr+bQCYycCrfPTvSWKSw9GgKPdQ==",
+  "dgSpecHash": "k2ur8Jevfay/T+edv6kz444RkOgxu2NhhgUrxlYai96S2X53rcOf4JYwaJxIhp7kuwOn6A15MG5cGBjGvmJ7EA==",
   "success": true,
   "projectFilePath": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\BookStoreWeb.csproj",
   "expectedPackageFiles": [
@@ -189,6 +189,7 @@
     "C:\\Users\\18622\\.nuget\\packages\\sqlitepclraw.core\\2.1.2\\sqlitepclraw.core.2.1.2.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.2\\sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.2\\sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+    "C:\\Users\\18622\\.nuget\\packages\\stripe.net\\42.8.0\\stripe.net.42.8.0.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\18622\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

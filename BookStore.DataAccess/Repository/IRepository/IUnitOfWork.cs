@@ -9,13 +9,15 @@ namespace BookStore.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork
     {
-        IOrderHeaderRepository Category { get; }
+        ICategoryRepository Category { get; }
         ICoverTypeRepository CoverType { get; }
         IProductRepository Product { get; }
 
         ICompanyRepository Company { get; }
 
         IShopingCartRepository ShopingCart { get; }
+
+        IApplicationUserRepository ApplicationUser { get; }
         IOrderDetailRepository OrderDetail { get; }
         IOrderHeaderRepository OrderHeader { get; }
 
