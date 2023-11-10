@@ -15,6 +15,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
 	{
 		private readonly IUnitOfWork _unitOfWork;
 
+        [BindProperty]
         public OrderVM OrderVM { get; set; }
         public OrderController(IUnitOfWork unitOfWork)
         {
@@ -40,10 +41,38 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
 
+        public IActionResult UpdateOrderDetail()
+        {
 
-		#region API CALLS
+            var orderHeaderFromDB = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked: false);
 
-		public IActionResult GetAll(string status)
+            orderHeaderFromDB.Name = OrderVM.OrderHeader.Name;
+            orderHeaderFromDB.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
+            orderHeaderFromDB.StreetAddress = OrderVM.OrderHeader.StreetAddress;
+            orderHeaderFromDB.City = OrderVM.OrderHeader.City; 
+            orderHeaderFromDB.PostalCode = OrderVM.OrderHeader.PostalCode;
+            orderHeaderFromDB.Street = OrderVM.OrderHeader.Street;
+
+            if(OrderVM.OrderHeader.TrackingNumber != null)
+            {
+                orderHeaderFromDB.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
+            }
+            if(OrderVM.OrderHeader.Carrer != null)
+            {
+                orderHeaderFromDB.Carrer = OrderVM.OrderHeader.Carrer;
+            }
+
+            _unitOfWork.OrderHeader.Update(orderHeaderFromDB);
+            _unitOfWork.Save();
+
+            TempData["success"] = "Order details updateed successfully";
+          return RedirectToAction("Details", "Order", new {orderId = orderHeaderFromDB.Id});
+        }
+
+
+        #region API CALLS
+
+        public IActionResult GetAll(string status)
 		{
 			IEnumerable<OrderHeader> orderHeaders;
 			
