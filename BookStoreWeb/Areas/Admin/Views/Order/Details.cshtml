@@ -265,7 +265,7 @@
 								</li>
 							</ul>
 							@if (Model.OrderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment &&
-										Model.OrderHeader.OrderStatus == SD.StatusShipped)
+							Model.OrderHeader.OrderStatus == SD.StatusShipped && User.IsInRole(SD.Role_User_Compnay))
 								{
 									<input type="submit" class="btn btn-success form-control my-1" value="Pay Now" />
 								}

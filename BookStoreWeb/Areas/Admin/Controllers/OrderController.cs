@@ -5,6 +5,7 @@ using BookStore.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
+using Stripe.Checkout;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -73,8 +74,96 @@ namespace BookStoreWeb.Areas.Admin.Controllers
           return RedirectToAction("Details", "Order", new {orderId = orderHeaderFromDB.Id});
         }
 
-
+        [ActionName("Details")]
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
+		public IActionResult Details_PAY_NOW()
+		{
+
+
+            OrderVM.OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, includeProperties: "ApplicationUser");
+            OrderVM.OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
+
+
+            // Stripe settings
+
+                var domain = "https://localhost:44340/";
+
+				var options = new SessionCreateOptions
+				{
+					SuccessUrl = domain + $"admin/order/PaymentConfirmation?OrderHeaderid={OrderVM.OrderHeader.Id}",
+					CancelUrl = domain + $"admin/order/details?orderId={OrderVM.OrderHeader.Id}",
+					LineItems = new List<SessionLineItemOptions>(),
+					Mode = "payment",
+				};
+
+				foreach (var item in OrderVM.OrderDetail)
+				{
+					{
+						var sessionLineItem = new SessionLineItemOptions
+						{
+							PriceData = new SessionLineItemPriceDataOptions
+							{
+								UnitAmount = (long)(item.Price * 100),
+								Currency = "usd",
+								ProductData = new SessionLineItemPriceDataProductDataOptions
+								{
+									Name = item.Product.Title,
+								}
+
+							},
+							Quantity = item.Count,
+
+						};
+						options.LineItems.Add(sessionLineItem);
+					}
+
+
+
+				}
+
+				var service = new SessionService();
+
+				Session session = service.Create(options);
+				var x = session.Id;
+
+				_unitOfWork.OrderHeader.UpdateStripePaymentId(OrderVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
+				_unitOfWork.Save();
+				Response.Headers.Add("Location", session.Url);
+
+				return new StatusCodeResult(303);
+
+		}
+
+
+		public IActionResult PaymentConfirmation(int orderHeaderid)
+		{
+
+			OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == orderHeaderid);
+
+			if (orderHeader.PaymentStatus == SD.PaymentStatusDelayedPayment)
+			{
+
+				var service = new SessionService();
+				Session session = service.Get(orderHeader.SessionId);
+				if (session.PaymentStatus.ToLower() == "paid")
+				{
+					_unitOfWork.OrderHeader.UpdateStripePaymentId(orderHeaderid, session.Id, session.PaymentIntentId);
+					_unitOfWork.OrderHeader.UpdateStatus(orderHeaderid, orderHeader.OrderStatus , SD.PaymentStatusApproved);
+					_unitOfWork.Save();
+				}
+
+
+
+			}
+
+			return View(orderHeaderid);
+		}
+
+
+
+		[HttpPost]
 		[Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
 		[ValidateAntiForgeryToken]
         public IActionResult StratProcessing()
@@ -100,6 +189,11 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             orderHeaderFromDB.Carrer= OrderVM.OrderHeader.Carrer;
             orderHeaderFromDB.OrderStatus = SD.StatusShipped;
             orderHeaderFromDB.ShippingDate = DateTime.Now;
+
+            if(orderHeaderFromDB.PaymentStatus == SD.PaymentStatusDelayedPayment)
+            {
+                orderHeaderFromDB.PaymentDueDate = DateTime.Now.AddDays(30);
+            }
 
 
 
