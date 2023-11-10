@@ -17,7 +17,7 @@ namespace BookStore.Utility
         public const string StatusApproved = "Approved";
         public const string StatusInProccess = "Processing";
         public const string StatusShipped = "Shipped";
-        public const string StatusCancelled = "Camcelled";
+        public const string StatusCancelled = "Cancelled";
         public const string StatusRefunded = "Refunded";
 
         public const string PaymentStatusPending = "Pending";

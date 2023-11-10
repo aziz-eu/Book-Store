@@ -143,7 +143,7 @@
 									
 									@if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
 									{
-										<input asp-for="OrderHeader.Carrer" id="carrer" type="text" class="form-control" />
+										<input asp-for="OrderHeader.Carrer" id="carrier" type="text" class="form-control" />
 										
 									}
 									else
@@ -273,12 +273,12 @@
 							{
 								if (Model.OrderHeader.OrderStatus == SD.StatusApproved)
 								{
-									<input type="submit" asp-action="StartProcessing" class="btn btn-primary form-control my-1" value="Start Processing" />
+									<input type="submit" asp-action="StratProcessing" class="btn btn-primary form-control my-1" value="Start Processing" />
 								}
 								if (Model.OrderHeader.OrderStatus == SD.StatusInProccess)
 								{
 									<input type="submit" onclick="return validateInput()"
-									asp-action="ShipOrder" class="btn btn-primary form-control my-1" value="Ship Order" />
+										   asp-action="ShipOrder" class="btn btn-primary form-control my-1" value="Ship Order" />
 								}
 								
 								@if (Model.OrderHeader.OrderStatus != SD.StatusRefunded &&
@@ -296,7 +296,7 @@
 	</div>
 </form>
 
-@* 
+
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
 <script>
@@ -321,4 +321,4 @@
 	}
 </script>
 
-} *@
+} 

@@ -4,6 +4,7 @@ using BookStore.Models.ViewModels;
 using BookStore.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Stripe;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -41,6 +42,9 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
 
+        [HttpPost]
+        [Authorize (Roles = SD.Role_Admin +","+ SD.Role_Employee)]
+        [ValidateAntiForgeryToken]
         public IActionResult UpdateOrderDetail()
         {
 
@@ -70,9 +74,80 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         }
 
 
-        #region API CALLS
+        [HttpPost]
+		[Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+		[ValidateAntiForgeryToken]
+        public IActionResult StratProcessing()
+        {
 
-        public IActionResult GetAll(string status)
+           
+            _unitOfWork.OrderHeader.UpdateStatus(OrderVM.OrderHeader.Id, SD.StatusInProccess);
+            _unitOfWork.Save();
+
+            TempData["success"] = "Order Status is in Inprocess";
+            return RedirectToAction("Details", "Order", new { orderId = OrderVM.OrderHeader.Id });
+        }
+
+
+        [HttpPost]
+		[Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+		[ValidateAntiForgeryToken]
+        public IActionResult ShipOrder()
+        {
+
+            var orderHeaderFromDB = _unitOfWork.OrderHeader.GetFirstOrDefault(u=>u.Id == OrderVM.OrderHeader.Id);
+            orderHeaderFromDB.TrackingNumber = OrderVM.OrderHeader.TrackingNumber;
+            orderHeaderFromDB.Carrer= OrderVM.OrderHeader.Carrer;
+            orderHeaderFromDB.OrderStatus = SD.StatusShipped;
+            orderHeaderFromDB.ShippingDate = DateTime.Now;
+
+
+
+
+            _unitOfWork.OrderHeader.Update(orderHeaderFromDB);
+            _unitOfWork.Save();
+
+            TempData["success"] = "Order Status is in shipped";
+            return RedirectToAction("Details", "Order", new { orderId = OrderVM.OrderHeader.Id });
+        }
+
+		[HttpPost]
+		[Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+		[ValidateAntiForgeryToken]
+		public IActionResult CancelOrder()
+		{
+
+			var orderHeaderFromDB = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, tracked: false);
+
+            if(orderHeaderFromDB.PaymentStatus  == SD.PaymentStatusApproved)
+            {
+
+                var options = new RefundCreateOptions
+                {
+                    Reason = RefundReasons.RequestedByCustomer,
+                    PaymentIntent = orderHeaderFromDB.PaymentIntentNumber,
+
+                };
+                var services = new RefundService();
+                Refund refund = services.Create(options);
+
+                _unitOfWork.OrderHeader.UpdateStatus(orderHeaderFromDB.Id, SD.StatusCancelled, SD.StatusRefunded);
+            }
+            else
+            {
+				_unitOfWork.OrderHeader.UpdateStatus(orderHeaderFromDB.Id, SD.StatusCancelled, SD.StatusCancelled);
+
+			}
+
+			_unitOfWork.Save();
+
+			TempData["success"] = "Order Canceled Successfully";
+			return RedirectToAction("Details", "Order", new { orderId = OrderVM.OrderHeader.Id });
+		}
+
+		#region API CALLS
+
+		public IActionResult GetAll(string status)
 		{
 			IEnumerable<OrderHeader> orderHeaders;
 			
