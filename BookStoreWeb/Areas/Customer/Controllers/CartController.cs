@@ -259,7 +259,9 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 				var cart = _unitOfWork.ShopingCart.GetFirstOrDefault(u => u.Id == CartId);
 				_unitOfWork.ShopingCart.Remove(cart);
 				_unitOfWork.Save();
-				return RedirectToAction(nameof(Index));
+				var count = _unitOfWork.ShopingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count ;
+				HttpContext.Session.SetInt32(SD.SessionCart, count);
+            return RedirectToAction(nameof(Index));
 			}
 
 
