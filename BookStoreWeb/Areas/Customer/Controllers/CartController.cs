@@ -223,7 +223,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 
 			_unitOfWork.ShopingCart.RemoveRange(shopingCarts);
 			_unitOfWork.Save();
-
+			HttpContext.Session.Clear();
 			return View(id);
 		}
 

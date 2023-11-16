@@ -52,29 +52,13 @@
                             <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">Manage Order</a>
                         </li>
 
-                        @if(HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart) != null)
-                        {
+                       
+                        
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
-                                    <i class="bi bi-cart4"></i>&nbsp;
-                                    
-                                (@HttpContextAccessor.HttpContext.Session.GetInt32(SD.SessionCart))
+                                    @await Component.InvokeAsync("ShoppingCart")
                                 </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index"><i class="bi bi-cart4"></i>
-                                    &nbsp; (0)
-                                </a>
-                            </li>
-                            
-                        }
-
-                       
-                         
-                      
+                            </li>                            
                     </ul>
 
                   <partial name="_LoginPartial" />
