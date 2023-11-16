@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a/JvTTTEPpa8h74MWBxh9BQwHtTGxhxLVkkYPI5Ycyw=",
+  "Hash": "FISd+oWpoFrCMeQhlXAt4IFMeOi3Hdas4Iyvlwo/ZWU=",
   "Source": "BookStoreWeb",
   "BasePath": "_content/BookStoreWeb",
   "Mode": "Default",
@@ -1122,12 +1122,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\733e733b-fed5-494c-8a7c-49ed77aa47d6.jpg",
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\4b4f3e68-4131-4dcb-90aa-2f5bd2266146.jpg",
       "SourceId": "BookStoreWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\",
       "BasePath": "_content/BookStoreWeb",
-      "RelativePath": "images/products/733e733b-fed5-494c-8a7c-49ed77aa47d6.jpg",
+      "RelativePath": "images/products/4b4f3e68-4131-4dcb-90aa-2f5bd2266146.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1136,15 +1136,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\products\\733e733b-fed5-494c-8a7c-49ed77aa47d6.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\products\\4b4f3e68-4131-4dcb-90aa-2f5bd2266146.jpg"
     },
     {
-      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg",
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\79100a10-5e87-4a6f-acc4-d874c8b4c320.jpg",
       "SourceId": "BookStoreWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\",
       "BasePath": "_content/BookStoreWeb",
-      "RelativePath": "images/products/bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg",
+      "RelativePath": "images/products/79100a10-5e87-4a6f-acc4-d874c8b4c320.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,7 +1153,41 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\products\\bf7b07bc-04ff-4ebf-8364-2d17637093c0.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\products\\79100a10-5e87-4a6f-acc4-d874c8b4c320.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\90b68065-8580-4ae6-8af9-65011f550645.jpg",
+      "SourceId": "BookStoreWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\",
+      "BasePath": "_content/BookStoreWeb",
+      "RelativePath": "images/products/90b68065-8580-4ae6-8af9-65011f550645.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\90b68065-8580-4ae6-8af9-65011f550645.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\images\\products\\92599de0-ecc3-47ba-9d32-8bb9215d8730.jpg",
+      "SourceId": "BookStoreWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\",
+      "BasePath": "_content/BookStoreWeb",
+      "RelativePath": "images/products/92599de0-ecc3-47ba-9d32-8bb9215d8730.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\92599de0-ecc3-47ba-9d32-8bb9215d8730.jpg"
     },
     {
       "Identity": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStoreWeb\\wwwroot\\js\\site.js",

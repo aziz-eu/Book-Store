@@ -1,5 +1,6 @@
 ﻿using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
+using BookStore.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
@@ -55,15 +56,19 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             if (cartFromDb != null)
             {
                 _unitOfWork.ShopingCart.UpdateCount(cartFromDb, shopingCart.Count);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart,
+                _unitOfWork.ShopingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
             }
             else
             {
                 _unitOfWork.ShopingCart.Add(shopingCart);
+                _unitOfWork.Save();
 
             }
 
           
-            _unitOfWork.Save();
+           
             return RedirectToAction(nameof(Index));
         }
 
