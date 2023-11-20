@@ -24,7 +24,7 @@
             
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">BookStore</a>
+                <a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">Book-Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,14 +72,14 @@
     </header>
     <partial name="_Notifiction" />
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 main-content">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted mt-5">
-        <div class="container">
-            &copy; 2023 - BookStoreWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container app-footer">
+            &copy; 2023 - BookStoreWeb - <a href="https://github.com/aziz-eu">abdulAziz</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

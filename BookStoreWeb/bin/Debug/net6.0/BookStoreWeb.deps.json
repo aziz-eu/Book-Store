@@ -3559,6 +3559,7 @@
       "BookStore.DataAccess/1.0.0": {
         "dependencies": {
           "BookStore.Models": "1.0.0",
+          "BookStore.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.22",
           "Microsoft.EntityFrameworkCore": "6.0.22",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.22",

@@ -1,6 +1,4 @@
-﻿
-
-using BookStore.DataAccess.Repository;
+﻿using BookStore.DataAccess.Repository;
 using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
 using BookStore.Utility;
@@ -93,6 +91,9 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             return View(catagoryDelete);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int id)
         {
             var catagoryDelete = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);

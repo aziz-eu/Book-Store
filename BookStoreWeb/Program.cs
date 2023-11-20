@@ -1,4 +1,5 @@
 using BookStore.Data;
+using BookStore.DataAccess.DbInitializer;
 using BookStore.DataAccess.Repository;
 using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Utility;
@@ -21,6 +22,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProvid
 builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
@@ -53,12 +56,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 app.UseRouting();
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe:SecretKey").Get<string>();
 
-app.UseAuthentication(); ;
+SeedDatabase();
 
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.UseSession();
@@ -70,3 +73,12 @@ app.MapControllerRoute(
     pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void SeedDatabase()
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbInitializer = scope.ServiceProvider.GetRequiredService<IDbInitializer>();
+        dbInitializer.Initializer();
+    }
+}

@@ -91,16 +91,20 @@ else {
     </div>
     <div class="col-md-5">
         <section>
-            <h3>Use another service to register.</h3>
+            <h3>Looks like you're new here!</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                                     <div>
                                         <p>
-                                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                                            about setting up this ASP.NET application to support logging in via external services</a>.
-                                        </p>
+                         
+                            Books are the mirrors of the soul. Books are the plane, and the train, and the road. They are the destination, and the journey. They are home.Books make great gifts because they have whole worlds inside of them. And it's much cheaper to buy somebody a book than it is to buy them the whole world!
+                                            @*There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
+                                            about setting up this ASP.NET application to support logging in via external services</a>. *@
+
+                           <br> <h4> Wellcome to Book-Store.<br> Register with your email to get started. </h4>  <br>
+                                            </p>
                                     </div>
                 }
                 else

@@ -15,3 +15,5 @@ C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\B
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\ref\BookStore.DataAccess.dll
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.DataAccess.runtimeconfig.json
 C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\obj\Debug\net6.0\BookStore.DataAccess.genruntimeconfig.cache
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.Utility.dll
+C:\Users\18622\Desktop\ASP.NET\BookStore\BookStore.DataAccess\bin\Debug\net6.0\BookStore.Utility.pdb

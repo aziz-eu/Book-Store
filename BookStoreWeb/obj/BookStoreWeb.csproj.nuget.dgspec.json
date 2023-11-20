@@ -30,6 +30,9 @@
             "projectReferences": {
               "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStore.Models\\BookStore.Models.csproj": {
                 "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStore.Models\\BookStore.Models.csproj"
+              },
+              "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStore.Utility\\BookStore.Utility.csproj": {
+                "projectPath": "C:\\Users\\18622\\Desktop\\ASP.NET\\BookStore\\BookStore.Utility\\BookStore.Utility.csproj"
               }
             }
           }
